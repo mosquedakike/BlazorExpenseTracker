@@ -1,0 +1,43 @@
+﻿@page "/razor"
+
+<h3>RazorSyntax</h3>
+
+@if (Clients.Count > 0)
+{
+    <p>There are some clients here...</p>
+}
+else if (Clients.Count == 0)
+{
+    <p>There no clients here...</p>
+}
+else
+{
+    <p>Less than none...</p>
+}
+
+@switch(Clients[0].Nombre)
+{
+    case "Test":
+        <p>Hello Test</p>
+        break;
+    case "Test2":
+         <p>Hello Test2</p>
+        break;
+    default:
+        break;
+}
+
+
+@code {
+    protected class Client
+    {
+        public string Nombre { get; set; }
+    }
+
+    private List<Client> Clients = new List<Client>
+{
+        new Client { Nombre = "Test"  },
+        new Client { Nombre = "Test2" }
+    };
+
+}
